@@ -166,4 +166,4 @@ app.get('/me', checkAuthMiddleware, (request, response) => {
   })
 });
 
-app.listen(3333);
+app.listen(port);
