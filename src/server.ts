@@ -9,7 +9,8 @@ import { checkRefreshTokenIsValid, users, seedUserStore, invalidateRefreshToken 
 import { CreateSessionDTO, DecodedToken } from './types';
 
 const app = express();
-const port =  process.env.PORT || 3333
+const { PORT = 3003 } = process.env
+
 
 app.use(express.json());
 app.use(cors())
@@ -166,4 +167,6 @@ app.get('/me', checkAuthMiddleware, (request, response) => {
   })
 });
 
-app.listen(port);
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+ })
